@@ -1,0 +1,16 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+#sala {
+	margin: auto;
+	margin-left: 10px;
+	height: 162px;
+	width: 156px;
+	border:1px solid black;
+}
