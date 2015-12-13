@@ -15,15 +15,18 @@ $(document).ready(function(){
     });
     $("#user").append("User: <input id='username' type='text'/><a id='login' href='#'> login</a>");
     $("#login").click(function() {
-        socket.emit('username', $("#username").val());
-        $("#user").hide();
-        $("#sala").show();
+        if($("#username").val() != "") {
+            socket.emit('username', $("#username").val());
+            $("#user").hide();
+            $("#sala").show();
+        } else {
+            alert("no has metido ningun nombre");
+        }
     });
-
 	$("#sala").click(function() {
         socket.emit("send",butacasOcupadas);
     });
-	for(i=0;i<9;i++){
+	for(i=0;i<100;i++){
         butacasLibres[i] = "canvas"+i;
         if(butacasOcupadas[i] != butacasLibres[i]) {
             $("#sala").append("<canvas id='canvas"+i+"' height=50 width=50 style='border: 1px solid black'></canvas>"); 
@@ -51,7 +54,7 @@ $(document).ready(function(){
                 socket.emit('msg',butaca);
             });*/
         $("#canvas"+i).click(function(){
-            for(j=0;j<9;j++){
+            for(j=0;j<100;j++){
                 if("canvas"+j === this.id) {
                     console.log(butacasLibres[j]+" "+butacasOcupadas[j]);
                     if(butacasLibres[j] === this.id && butacasOcupadas[j] !== this.id) {

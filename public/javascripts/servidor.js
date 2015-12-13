@@ -10,12 +10,13 @@ module.exports=function(io){
   	});*/
   	var butacasOcupadas = [];
     var usernames = [];
-    random = "canvas"+Math.floor(Math.random()*9+1);
+    random = "canvas"+Math.floor(Math.random()*100+1);
 
     socket.on("username", function(msg) {
       console.log("client="+msg);
       usernames.push(msg);
       socket.msg = msg;
+      socket.emit('numero', random);
     });
 
   	io.sockets.on('connection', function(socket) {
@@ -23,7 +24,7 @@ module.exports=function(io){
   			butacasOcupadas = msg;
   			console.log(butacasOcupadas);
         console.log(random);
-        for(i=0;i<9;i++){
+        for(i=0;i<100;i++){
           if(butacasOcupadas[i]==random) {
             console.log(socket.msg + " gano");
             io.sockets.emit('ganador',socket.msg+" ha ganado");
