@@ -10,7 +10,16 @@ a {
 #sala {
 	margin: auto;
 	margin-left: 10px;
-	height: 556px;
+	height: 547px;
 	width: 520px;
+	border:1px solid black;
+}
+
+#dist {
+	position: absolute;
+	top: 150px;
+	left: 700px;
+	height: 500px;
+	width: 150px;
 	border:1px solid black;
 }
