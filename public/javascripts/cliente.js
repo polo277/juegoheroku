@@ -1,8 +1,8 @@
 $(document).ready(function(){
 
     //var socket=io.connect('10.10.2.213:3000');//Establezco un socket con el servidor en este caso como es la misma máquina localhost
-    var socket=io.connect('192.168.1.213:3000');
-    //var socket=io.connect();
+    //var socket=io.connect('192.168.1.213:3000');
+    var socket=io.connect();
 
     var butacasLibres = [];
     var butacasOcupadas = [];
